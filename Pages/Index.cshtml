@@ -1,0 +1,242 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "";
+    ViewData["Image"] = "~/img/Goodfellowselectrical-logo-black.jpeg";
+    ViewData["Description"] = "Family owned and servicing Brisbane for over 20 years, we love to provide our customers with someone they can rely on and trust to produce exceptional outcomes and professional results";
+    ViewData["Keywords"] = "homepage, home, page";
+}
+
+
+
+<!-- Need to go over headers for SEO purposes -->
+<!-- Header -->
+<section class="home-bg header-home bg-dark-2 text-white">
+    <div class="container justify-content-center d-flex align-items-center">
+        <div class="row flex-row">
+            <div class="col-5">
+                <h1 class="head-title">Goodfellows by name,<br />Goodfellows in service... Brisbane's trusted electricians</h1>
+                <div class="pt-2">
+                    <p class="head-subtext">Family owned and servicing Brisbane for over 20 years, we love to provide our customers with someone they can rely on and trust to produce exceptional outcomes and professional results</p>
+                </div>
+                <div class="row pt-3">
+                    <div class="col-9">
+                        <a class="button-green" href="/About">About Us</a>
+                        <a class="button-white" href="/Services">What We Do</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- About Us -->
+<section class=" bg-light-1">
+    <div class="container justify-content-center align-items-center">
+        <div class="row flex-row">
+            <div class="col-5">
+                <img class="section-img" src="~/img/dave+reeza.jpeg" alt="David and Reeza" />
+            </div>
+            <div class="col-7">
+                <div class="row">
+                    <h2 class="section-title">Who We Are</h2>
+                    <h5 class="section-subtitle">About Us</h5>
+                </div>
+                <div class="pt-2">
+                    <p>Goodfellows Electrical is a family owned and run electrical contracting business. We have been proudly serving Brisbane for 20 years in installations, maintenance and repairs in commercial, industrial and domestic settings</p>
+                    <p>At Goodfellows Electrical we pride ourselves in our workmanship, customer service, knowledge and fair pricing</p>
+                </div>
+                <div class="col-6 pt-3">
+                    <a class="section-more-btn" href="/About">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- What We Do -->
+<section class="">
+    <div class="container justify-content-center align-items-center">
+        <div class="row flex-row text-center">
+            <h2 class="section-title">What We Do</h2>
+            <h5 class="section-subtitle">Services We Offer</h5>
+        </div>
+        <div class="row flex-row pt-3">
+            <a class="col-3 text-center card" href="/Services/#domestic">
+                <p><i class="fa-solid fa-bolt-lightning card-icon"></i></p>
+                <p><b>Domestic</b></p>
+                <p>Property appliance installations</p>
+            </a>
+            <a class="col-3 text-center card" href="/Services/#commercial">
+                <p><i class="fa-solid fa-lightbulb card-icon"></i></p>
+                <p><b>Commercial</b></p>
+                <p>Industrial troubleshooting and repairs</p>
+            </a>
+            <a class="col-3 text-center card" href="/Services/#general">
+                <p><i class="fa-solid fa-plug-circle-check card-icon"></i></p>
+                <p><b>Installations</b></p>
+                <p>General wiring, cabling and appliances</p>
+            </a>
+            <a class="col-3 text-center card" href="/Services/#maintenance">
+                <p><i class="fa-solid fa-clipboard-check card-icon"></i></p>
+                <p><b>Maintenance</b></p>
+                <p>System inspections and repairs</p>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Submission Form --> <!-- Check form submission types -- form to be submitted as email and text to Reeza's number -->
+<section class="bg-theme-green">
+    <div class="container justify-content-center align-items-center">
+        <div class="row flex-row text-center text-white">
+            <h2 class="section-title">Get in Touch With Us</h2>
+            <h5 class="section-subtitle">Request a Callback</h5>
+        </div>
+        <div class="row flex-row pt-3 text-white">
+            <form class="form-horizontal" action="https://formsubmit.co/cole.gagesullivan@gmail.com" method="post">
+                <div class="row flex-row">
+                    <div class="form-group col-4">
+                        <label class="control-label" for="name">Name</label>
+                        <div class="col-sm-12">
+                            <input type="text" class="form-control" id="name" placeholder="Joe Bloggs" required>
+                        </div>
+                    </div>
+                    <div class="form-group col-4">
+                        <label class="control-label" for="email">Email</label>
+                        <div class="col-sm-12">
+                            <input type="email" class="form-control" id="email" placeholder="joe.bloggs@service.com.au" required>
+                        </div>
+                    </div>
+                    <div class="form-group col-4">
+                        <label class="control-label" for="phone">Phone</label>
+                        <div class="col-sm-12">
+                            <input type="tel" class="form-control" id="phone" placeholder="0412 345 678" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="row flex-row pt-3">
+                    <div class="form-group col-4">
+                        <label class="control-label" for="address">Address (optional)</label>
+                        <div class="col-sm-12">
+                            <input type="text" class="form-control" id="address" placeholder="123 Service Street, Brisbane CBD, 4000">
+                        </div>
+                    </div>
+                    <div class="form-group col-4">
+                        <label class="control-label" for="type">Type of Work</label>
+                        <div class="col-sm-12">
+                            <select class="form-control" id="type" placeholder="Select type" required>
+                                <option value="placeholder" selected hidden style="color:GrayText">Select type</option>
+                                <option value="domestic">Domestic</option>
+                                <option value="commercial">Commercial</option>
+                                <option value="industrial">Industrial</option>
+                                <option value="maintenance">Maintenance</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group col-4">
+                        <label class="control-label" for="urgency">Urgency</label>
+                        <div class="col-sm-12">
+                            <select class="form-control" id="urgency" placeholder="Select urgency" required>
+                                <option value="placeholder" selected hidden>Select urgency</option>
+                                <option value="not">Not urgent</option>
+                                <option value="urgent">Urgent</option>
+                                <option value="extremely">Extremely urgent</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row flex-row pt-3">
+                    <div class="form-group col-12">
+                        <label class="control-label" for="details">Work Details (a brief summary of work required)</label>
+                        <div class="col-sm-12">
+                            <input type="text" class="form-control" id="details" placeholder="Enter message" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group pt-3">
+                    <div class="row justify-content-center align-items-center">
+                        <button type="submit" class="section-submit-btn">Send Request</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- Previous Work -->
+<section class="">
+    <div class="row flex-row text-center justify-content-center align-items-center">
+        <h2 class="section-title">Previous Installations</h2>
+        <h5 class="section-subtitle">What We Have Delivered</h5>
+    </div>
+    <div class="row flex-row text-center pt-3">
+        <div class="col-3">
+            <a href="https://www.instagram.com/p/CkhaJi2PAkw/"><img src="~/img/previous-1.jpg" alt="Domestic Lighting Installation" class="section-previous-img-2" /></a>
+        </div>
+        <div class="col-3">
+            <a href="https://www.instagram.com/p/CkhaJi2PAkw/"><img src="~/img/previous-3.jpg" alt="Domestic Lighting Installation" class="section-previous-img-2" /></a>
+        </div>
+        <div class="col-3">
+            <a href="https://www.instagram.com/p/CQ0D4AfFMKl/"><img src="~/img/previous-7.jpg" alt="Outdoor Stair Lighting" class="section-previous-img-2" /></a>
+        </div>
+        <div class="col-3">
+            <a href="https://www.instagram.com/p/CW4ypPKPGZT/"><img src="~/img/previous-8.jpg" alt="Modern Domestic Lighting Installation" class="section-previous-img-2" /></a>
+        </div>
+    </div>
+    <div class="pt-4">
+        <div class="row justify-content-center align-items-center">
+            <a class="section-more-btn" href="/Previous">See More</a>
+        </div>
+    </div>
+</section>
+
+<!-- Meet the Team -->
+<section class="bg-light-1">
+    <div class="row flex-row text-center">
+        <h2 class="section-title">Meet the Team</h2>
+        <h5 class="section-subtitle">Goodfellows Electrical</h5>
+    </div>
+    <div class="row flex-row text-center align-items-center pt-3">
+        <div class="col-4">
+            <img src="" alt="David Goodfellow" class="section-team-img" />
+            <h6 class="section-team-name">David Goodfellow</h6>
+            <p class="section-team-description">Electrician</p>
+        </div>
+        <div class="col-4">
+            <img src="" alt="Reeza Goodfellow" class="section-team-img" />
+            <h6 class="section-team-name">Reeza Goodfellow</h6>
+            <p class="section-team-description">Electrician</p>
+        </div>
+        <div class="col-4">
+            <img src="" alt="Cameron Faulkner" class="section-team-img" />
+            <h6 class="section-team-name">Cameron Faulkner</h6>
+            <p class="section-team-description">Apprentice Electrician</p>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Us -->
+<section class="">
+    <div class="container justify-content-center align-items-center">
+        <div class="row flex-row">
+            <div class="col-3">
+                <div class="head-icon text-center text-dark">
+                    <i class="fa-solid fa-phone-flip"></i>
+                </div>
+            </div>
+            <div class="col-9">
+                <div class="row">
+                    <h2 class="section-title">Contact Us</h2>
+                    <h5 class="section-subtitle">Get in Touch</h5>
+                </div>
+                <div class="pt-2">
+                    <p>Need to get in touch for more information? Contact us socially, have a chat over the phone or complete our submission form and we'll get back to you</p>
+                </div>
+                <div class="col-6 pt-3">
+                    <a class="section-more-btn" href="/Contact">See More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

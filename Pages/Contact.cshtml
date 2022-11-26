@@ -1,0 +1,156 @@
+﻿@page
+@model ContactModel
+@{
+    ViewData["Title"] = "Contact Us";
+    ViewData["Image"] = "~/img/Goodfellowselectrical-logo-black.jpeg";
+    ViewData["Description"] = "Need to get in touch for more information? Contact us socially, have a chat over the phone or complete our submission form and we'll get back to you";
+    ViewData["Keywords"] = "contact, phone, number, email, instagram, facebook, form";
+}
+
+<!-- Header -->
+<section class="contact-bg header-normal bg-dark-2 text-white">
+    <div class="container align-items-center justify-content-left">
+        <div class="row flex-row">
+            <div class="col-5">
+                <h1 class="head-title">Contact Us</h1>
+                <div class="pt-2">
+                    <p class="head-subtext">Need to get in touch for more information? Contact us socially, have a chat over the phone or complete our submission form and we'll get back to you</p>
+                </div>
+            </div>
+            <div class="col-7 mx-auto text-center">
+                <div class="head-icon">
+                    <i class="fa-solid fa-phone-flip"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Ways to Connect -->
+<section class="bg-light-1">
+    <div class="container">
+        <div class="row flex-row">
+            <h2 class="section-title">Ways to Connect</h2>
+            <h5 class="section-subtitle">Get in Touch</h5>
+        </div>
+        <div class="row flex-row pt-3">
+            <div class="col-12">
+                Our contact hours are 9AM - 5PM, outside of business hours we will still try to get back to you ASAP
+            </div>
+        </div>
+        <div class="row flex-row pt-3">
+            <div class="col-6">
+                <div class="row flex-row contact-row">
+                    <div class="col-3">
+                        <p><i class="fa-regular fa-envelope"></i>&nbsp;Email</p>
+                    </div>
+                    <div class="col-9">
+                        <a href="mailto:reeza@goodfellowselectrical.com.au" class="contact-link" target="_blank">reeza@goodfellowselectrical.com.au</a>
+                    </div>
+                </div>
+                <div class="row flex-row contact-row">
+                    <div class="col-3">
+                        <p><i class="fa-solid fa-phone-flip"></i>&nbsp;Phone</p>
+                    </div>
+                    <div class="col-9">
+                        <a href="tel:0420 488 693" class="contact-link" target="_blank">0420 488 693</a>
+                    </div>
+                </div>
+                <div class="row flex-row contact-row">
+                    <div class="col-3">
+                        <p><i class="fa-brands fa-facebook"></i>&nbsp;Facebook</p>
+                    </div>
+                    <div class="col-9">
+                        <a href="https://www.facebook.com/goodfellowselectrical/" class="contact-link" target="_blank">https://www.facebook.com/goodfellowselectrical/</a>
+                    </div>
+                </div>
+                <div class="row flex-row contact-row contact-row-last">
+                    <div class="col-3">
+                        <p><i class="fa-brands fa-instagram"></i>&nbsp;Instagram</p>
+                    </div>
+                    <div class="col-9">
+                        <a href="https://www.instagram.com/goodfellows_electrical/?hl=en" class="contact-link" target="_blank">https://www.instagram.com/goodfellows_electrical/</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Submission Form --> <!-- Check form submission types -- form to be submitted as email and text to Reeza's number -->
+<section class=" bg-theme-green">
+    <div class="container justify-content-center align-items-center">
+        <div class="row flex-row text-center text-white">
+            <h2 class="section-title">Get in Touch With Us</h2>
+            <h5 class="section-subtitle">Request a Callback</h5>
+        </div>
+        <div class="row flex-row pt-3 text-white">
+            <form class="form-horizontal" action="/action_page.php">
+                <div class="row flex-row">
+                    <div class="form-group col-4">
+                        <label class="control-label" for="name">Name</label>
+                        <div class="col-sm-12">
+                            <input type="text" class="form-control" id="name" placeholder="Joe Bloggs">
+                        </div>
+                    </div>
+                    <div class="form-group col-4">
+                        <label class="control-label" for="email">Email</label>
+                        <div class="col-sm-12">
+                            <input type="email" class="form-control" id="email" placeholder="joe.bloggs@service.com.au">
+                        </div>
+                    </div>
+                    <div class="form-group col-4">
+                        <label class="control-label" for="phone">Phone</label>
+                        <div class="col-sm-12">
+                            <input type="tel" class="form-control" id="phone" placeholder="0412 345 678">
+                        </div>
+                    </div>
+                </div>
+                <div class="row flex-row pt-3">
+                    <div class="form-group col-4">
+                        <label class="control-label" for="address">Address (optional)</label>
+                        <div class="col-sm-12">
+                            <input type="text" class="form-control" id="address" placeholder="123 Service Street, Brisbane CBD, 4000">
+                        </div>
+                    </div>
+                    <div class="form-group col-4">
+                        <label class="control-label" for="type">Type of Work</label>
+                        <div class="col-sm-12">
+                            <select class="form-control" id="type" placeholder="Select type">
+                                <option value="placeholder" selected hidden style="color:GrayText">Select type</option>
+                                <option value="domestic">Domestic</option>
+                                <option value="commercial">Commercial</option>
+                                <option value="industrial">Industrial</option>
+                                <option value="maintenance">Maintenance</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group col-4">
+                        <label class="control-label" for="urgency">Urgency</label>
+                        <div class="col-sm-12">
+                            <select class="form-control" id="urgency" placeholder="Select urgency">
+                                <option value="placeholder" selected hidden>Select urgency</option>
+                                <option value="not">Not urgent</option>
+                                <option value="urgent">Urgent</option>
+                                <option value="extremely">Extremely urgent</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row flex-row pt-3">
+                    <div class="form-group col-12">
+                        <label class="control-label" for="details">Work Details (a brief summary of work required)</label>
+                        <div class="col-sm-12">
+                            <input type="text" class="form-control" id="details" placeholder="Enter message">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group pt-3">
+                    <div class="row justify-content-center align-items-center">
+                        <button type="submit" class="section-submit-btn">Send Request</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>

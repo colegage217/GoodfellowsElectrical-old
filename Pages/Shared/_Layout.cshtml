@@ -1,0 +1,232 @@
+﻿@{
+    string TitleTag = " | Goodfellows Electrical";
+
+    if (!string.IsNullOrEmpty($"{ViewData["Title"]}"))
+        ViewData["Title"] = ViewData["Title"].ToString().Substring(0, ViewData["Title"].ToString().Length > (60 - TitleTag.Length) ? (60 - TitleTag.Length) : ViewData["Title"].ToString().Length);
+    else
+        ViewData["Title"] = "Brisbane's Trusted Electricians"; // title is null, set title
+
+    if (ViewData["Title"].ToString().Length == (60 - TitleTag.Length)) // Maxed out title, add ..
+        ViewData["Title"] += "..";
+
+    ViewData["Title"] += TitleTag;
+
+    if (ViewData["Description"] != null)
+        ViewData["Description"] = ViewData["Description"].ToString().Substring(0, ViewData["Description"].ToString().Length > 160 ? 160 : ViewData["Description"].ToString().Length);
+    else
+        ViewData["Description"] = "Brisbane's Trusted Electricians";
+
+    if (ViewData["OgType"] == null)
+        ViewData["OgType"] = "website";
+
+    string domainName = Context.Request.Host.Value.ToLower();
+
+    bool IsDotCom = domainName == "goodfellowselectrical.com" || domainName == "www.goodfellowselectrical.com";
+    bool IsDotComAu = domainName == "goodfellowselectrical.com.au" || domainName == "www.goodfellowselectrical.com.au";
+
+    TimeSpan currentTime = DateTime.Now.TimeOfDay;
+    TimeSpan businessStart = TimeSpan.Parse("09:00");
+    TimeSpan businessEnd = TimeSpan.Parse("17:00");
+
+    bool withinBusinessHours = businessStart <= currentTime;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    @if (IsDotCom)
+    {
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-25LTG64DPF"></script>
+        <script>window.dataLayer = window.dataLayer || [];
+            function gtag() { dataLayer.push(arguments); }
+            gtag('js', new Date());
+
+            gtag('config', 'G-25LTG64DPF');</script>
+    }
+    else if (IsDotComAu)
+    {
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-NVE95LPFC5"></script>
+        <script>window.dataLayer = window.dataLayer || [];
+            function gtag() { dataLayer.push(arguments); }
+            gtag('js', new Date());
+
+            gtag('config', 'G-NVE95LPFC5');</script>
+    }
+    else
+    {
+        <script>console.log("Domain: '@domainName'");</script>
+    }
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/GoodfellowsElectrical.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito">
+    <script src="https://kit.fontawesome.com/f6f0831a2e.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="~/js/site.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&key=[(API_KEY)]"></script><!-- find api key for website -->
+
+    <meta name="keywords" content="@ViewData["Keywords"], goodfellows, goodfellow, electric, electrics, electrician, good electric, good electrician, goodfellow electric, goodfellow electrical, goodfellows electric, goodfellows electric, goodfellows electrical domestic, domestic electric, domestic electrician, commercial, commercial electric, commercial electrician, install, installs, installation, installations, light, lighting, light install, light installation, oven, oven install, oven installation, power, powerpoint, point, powerpoint install, powerpoint installation, water, hot water, system, hot water system, hot water system installation, alarm, smoke, smoke alarm, test, tests, testing, smoke alarm test, smoke alarm installation, data, tv, tele, television, data and tv point installation, maintain, maintenance, indoor, outdoor, sensor, cable, cabling, cook, cooktop, rangehood, inspect, repair, general, appliance, trouble, troubleshoot, property, safe, safety, industry, industrial, industrial install, industrial installation, brisbane, queensland, australia, australian" />
+    <meta name="description" content="@ViewData["Description"]" />
+    <meta name="subject" content="Goodfellows by name, Goodfellows in service... Brisbane's trusted electricians">
+    <meta name="copyright" content="Goodfellows Electrical">
+    <meta name="language" content="EN">
+    <meta name="robots" content="index,follow" />
+    <meta name="abstract" content="">
+    <meta name="topic" content="">
+    <meta name="summary" content="">
+    <meta name="Classification" content="Business">
+    <meta name="author" content="Goodfellows Electrical, reeza@goodfellowselectrical.com.au">
+    <meta name="designer" content="Goodfellows Electrical">
+    <meta name="copyright" content="">
+    <meta name="reply-to" content="reeza@goodfellowselectrical.com.au">
+    <meta name="owner" content="Goodfellowselectrical.com.au">
+    <meta name="url" content="@("https://goodfellowselectrical.com.au" + $"{Context.Request.Path}")">
+    <meta name="identifier-URL" content="@("https://goodfellowselectrical.com.au" + $"{Context.Request.Path}")">
+    <meta name="coverage" content="Australia">
+    <meta name="distribution" content="Australia">
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache" />
+
+    <meta property="og:title" content="@ViewData["Title"]" />
+    <meta property="og:type" content="@ViewData["OgType"]" />
+    <meta property="og:url" content="@("https://goodfellowselectrical.com.au" + $"{Context.Request.Path}")" />
+    <meta property="og:image" content="@ViewData["Image"]" />
+    <meta property="og:site_name" content="Goodfellows Electrical" />
+    <meta property="og:description" content="@ViewData["Description"]" />
+    <meta property="og:email" content="reeza@goodfellowselectrical.com.au" />
+
+
+    <meta name="og:locality" content="Brisbane" />
+    <meta name="og:region" content="Queensland" />
+    <meta name="og:postal-code" content="4000" />
+    <meta name="og:country-name" content="AU" />
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta content="yes" name="apple-touch-fullscreen" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+
+    <meta http-equiv="Page-Enter" content="RevealTrans(Duration=2.0,Transition=2)" />
+    <meta http-equiv="Page-Exit" content="RevealTrans(Duration=3.0,Transition=12)" />
+    <meta name="mssmarttagspreventparsing" content="true">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="msapplication-starturl" content="https://goodfellowselectrical.com.au" />
+    <meta name="msapplication-window" content="width=800;height=600" />
+    <meta name="msapplication-navbutton-color" content="white" />
+    <meta name="application-name" content="@ViewData["Description"]" />
+    <meta name="msapplication-tooltip" content="Tradiespace" />
+    <link rel="shortcut icon" href="~/img/tab-icon.jpg" /> <!-- Tab image -->
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    @*<link rel="apple-touch-icon" href="https://cdn.tradiespace.com.au/site/images/logo/favicons/apple-icon-72x72.png" />
+        <link rel="apple-touch-icon" sizes="72x72" href="https://cdn.tradiespace.com.au/site/images/logo/favicons/apple-icon-72x72.png" />
+        <link rel="apple-touch-icon" sizes="114x114" href="https://cdn.tradiespace.com.au/site/images/logo/favicons/apple-icon-114x114.png" />*@
+    <link rel="apple-touch-startup-image" href="@ViewData["Image"]">
+
+    @*<link rel="apple-touch-icon" type="image/png" href="https://cdn.tradiespace.com.au/site/images/logo/favicons/apple-icon-72x72.png" />
+        <link rel="alternate" type="application/rss+xml" title="RSS" href="http://feeds.feedburner.com/martini" />
+        <link rel="shortcut icon" type="image/ico" href="https://cdn.tradiespace.com.au/site/images/logo/favicon.ico" />*@
+</head>
+<body>
+    <header>
+        <!-- Navigation Bar -->
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-area="" asp-page="/Index"><img class="nav-img" src="~/img/Goodfellowselectrical-logo-black.jpeg" alt="Goodfellows Electrical Logo (Black)" /></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <!-- Nav Items -->
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="navigation-link" asp-area="" asp-page="/Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="navigation-link" asp-area="" asp-page="/About">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="navigation-link" asp-area="" asp-page="/Services">What We Offer</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="navigation-link" asp-area="" asp-page="/Previous">Previous Work</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="navigation-link" asp-area="" asp-page="/Reviews">Customer Reviews</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="navigation-link" asp-area="" asp-page="/Contact">Contact Us</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div>
+        <main role="main">
+            @RenderBody()
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="dark-footer py-5">
+        <div class="container-fluid pt-3">
+            <div class="row flex-row">
+                <div class="col-4 mx-auto my-auto text-center justify-content-center">
+                    <img class="footer-img" src="~/img/Goodfellowselectrical-logo-white.jpeg" alt="Goodfellows Electrical Logo (White)" />
+                </div>
+                <div class="col-4">
+                    <!-- Footer Links -->
+                    <h6><b>Quick Links</b></h6>
+                    <div>
+                        <a class="footer-link" asp-area="" asp-page="/Index">Home</a><br />
+                        <a class="footer-link" asp-area="" asp-page="/About">About Us</a><br />
+                        <a class="footer-link" asp-area="" asp-page="/Services">What We Offer</a><br />
+                        <a class="footer-link" asp-area="" asp-page="/Previous">Previous Work</a><br />
+                        <a class="footer-link" asp-area="" asp-page="/Reviews">Reviews</a><br />
+                        <a class="footer-link" asp-area="" asp-page="/Contact">Contact Us</a>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <!-- Footer Contact Info -->
+                    <h6><b>Contact</b></h6>
+                    <div>
+                        <p>0420 488 693</p>
+                        <p>reeza@goodfellowselectrical.com.au</p>
+                        <p>Brisbane, QLD</p>
+                    </div>
+                    <!-- Footer Contact Icons -->
+                    <div class="d-sm-inline-flex footer-btns text-center">
+                        <a href="https://www.facebook.com/goodfellowselectrical/" class="social-btn" target="_blank"><i class="social-icon fa-brands fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/goodfellows_electrical/?hl=en" class="social-btn" target="_blank"><i class="social-icon fa-brands fa-instagram"></i></a>
+                        <a href="mailto:reeza@goodfellowselectrical.com.au" class="social-btn" target="_blank"><i class="social-icon fa-regular fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @*<div class="container pt-3">
+                &copy; Developed by Production Line Programming - September 2022
+            </div>*@
+    </footer>
+
+    <!-- Call Button -->
+    @if (withinBusinessHours) {
+        <a class="call-btn text-center" href="tel:0434 132 712" target="_blank">
+            <i class="fa-solid fa-phone-flip call-btn-icon"></i>
+        </a>
+     }
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
